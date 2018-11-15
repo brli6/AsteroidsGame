@@ -1,4 +1,5 @@
 Spaceship bob; 
+Asteroid[] sue = new Asteroid[20];
 Star[] nightSky = new Star[300];
 //your variable declarations here
 public void setup() 
@@ -9,6 +10,10 @@ public void setup()
   {
   	nightSky[i] = new Star();
   }
+  for (int i = 0; i < sue.length; i++)
+  {
+  	sue[i] = new Asteroid();
+  }
 }
 public void draw() 
 {
@@ -18,6 +23,11 @@ public void draw()
   for (int i = 0; i <nightSky.length; i++)
   {
   	nightSky[i].show();
+  }
+  for (int i = 0; i < sue.length; i++)
+  {
+  	sue[i].show();
+  	sue[i].move();
   }
 }
 public void keyPressed()

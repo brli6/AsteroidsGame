@@ -24,6 +24,8 @@ class Spaceship extends Floater
   	xCorners[3] = -2;
   	yCorners[3] = 0;
   	myColor = (#76D7C4);
+  	myCenterX = 300;
+  	myCenterY = 300;
   }
 
 }
