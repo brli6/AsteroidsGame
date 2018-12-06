@@ -11,7 +11,7 @@ public void setup()
   {
   	nightSky[i] = new Star();
   }
-  for (int i = 0; i < 10; i++)
+  for (int i = 0; i < 20; i++)
   {
  	rocky.add(new Asteroid());
   }
@@ -36,33 +36,33 @@ public void draw()
   	sue[i].show();
   	sue[i].move();
   }*/
-  //adds an asteroid into the array list
-  
-  for (int i = 0; i < rocky.size(); i++)
-  {
-  	rocky.get(i).show();
-  	rocky.get(i).move();
-  	//removes the astroid if it collides with the ship
-  	float d = dist(bob.getX(), bob.getY(), rocky.get(i).getX(), rocky.get(i).getY());
-  	if (d < 30)
-  		rocky.remove(i);
-
+  //adds an bullet into the array list
   for(int j = 0; j < shot.size(); j++)
   {
   	shot.get(j).show();
   	shot.get(j).move();
-
-  float r = dist(shot.get(j).getX(), shot.get(j).getY(), rocky.get(i).getX(), rocky.get(i).getY());
-  if (r < 30)
+  }
+  //adds an asteroid into the array list
+  for (int i = 0; i < rocky.size(); i++)
+  {
+  	rocky.get(i).show();
+  	rocky.get(i).move();
+  	//removes the asteroid if it collides with the ship
+  	float d = dist(bob.getX(), bob.getY(), rocky.get(i).getX(), rocky.get(i).getY());
+  	if (d < 30)
+  		rocky.remove(i);
+  	//removes asteroid and bullet when they come into contact
+  for(int j = 0; j < shot.size(); j++)
+  {
+  	float r = dist(shot.get(j).getX(), shot.get(j).getY(), rocky.get(i).getX(), rocky.get(i).getY());
+  	if (r < 30)
   {
   	rocky.remove(i);
   	shot.remove(j);
   	break;
   }
   }
-  }
-  // adds a bullet in the ArrayList
-  
+  }  
 }
 public void keyPressed()
 {
